@@ -28,49 +28,60 @@ public class processRequest implements TabExecutor {
             Player thisPlayer = (Player) commandSender;
             Player senderPlayer = tradeToSb.getFromPlayer();
             //检测是否拥有lock：lock为true
-            if (!lockGS.getLock()) {
+            if (lockGS.getLock()) {
+                switch (s) {
+                    case "simpleview"://如果预览
+                        Map<Integer, ItemStack> itemStack = inventoryCloseListener.getItemStackMap();
+
+                        for (int i = 0; i < 9; i++) {
+                            ItemStack tradeItem = itemStack.get(i);
+                            commandSender.sendMessage(String.format("trading items is: %s", tradeItem));
+                        }
+                        break;
+                    case "simpleaccept"://如果同意
+                        if (getMoney(thisPlayer) >= tradeToSb.getMoney() && thisPlayer.getInventory().firstEmpty() != -1) {
+                            for (int i = 0; i < 9; i++) {
+                                ItemStack tradeItem = inventoryCloseListener.getItemStackMap().get(i);
+                                if (tradeItem != null) thisPlayer.getInventory().addItem(tradeItem);
+                            }
+                            addMoney(senderPlayer, tradeToSb.getMoney());
+                            removeMoney(thisPlayer, tradeToSb.getMoney());
+
+                            commandSender.sendMessage("You have accepted the transaction");
+                            senderPlayer.sendMessage("You have accepted the transaction");
+                        } else {
+                            commandSender.sendMessage("You do not have enough money or the inventory is full");
+                            return false;
+                        }
+
+                        lockGS.setLock(thisPlayer, false);
+                        break;
+                    case "simplerefuse"://如果拒绝
+                        if (senderPlayer.getInventory().firstEmpty() != -1) {
+                            for (int i = 0; i < 9; i++) {
+                                ItemStack tradeItem = inventoryCloseListener.getItemStackMap().get(i);
+                                if (tradeItem != null) senderPlayer.getInventory().addItem(tradeItem);
+                            }
+
+                            commandSender.sendMessage("You have refused the transaction");
+                            senderPlayer.sendMessage("You have refused the transaction");
+                        } else {
+                            commandSender.sendMessage("The inventory is full");
+                            return false;
+                        }
+
+                        lockGS.setLock(thisPlayer, false);
+                        break;
+                    default:
+                        throw new IllegalStateException("Unknown command");
+                }
+            } else {
                 commandSender.sendMessage(String.format("The %s already has an active transaction (does not own the lock)", thisPlayer.getName()));
                 return false;
             }
-            switch (s) {
-                case "simpleview"://如果预览
-                    Map<Integer, ItemStack> itemStack = inventoryCloseListener.getItemStackMap();
 
-                    for (int i = 0; i < 9; i++) {
-                        ItemStack tradeItem = itemStack.get(i);
-                        commandSender.sendMessage(String.format("trading items is: %s", tradeItem));
-                    }
-                    break;
-                case "simpleaccept"://如果同意
-                    if (getMoney(thisPlayer) > tradeToSb.getMoney() && thisPlayer.getInventory().firstEmpty() != -1) {
-                        for (int i = 0; i < 9; i++) {
-                            ItemStack tradeItem = inventoryCloseListener.getItemStackMap().get(i);
-                            thisPlayer.getInventory().addItem(tradeItem);
-                        }
-                        addMoney(senderPlayer, tradeToSb.getMoney());
-                        removeMoney(thisPlayer, tradeToSb.getMoney());
-                    }
-                    commandSender.sendMessage("You have accepted the transaction");
-                    senderPlayer.sendMessage("You have accepted the transaction");
-
-                    lockGS.setLock(thisPlayer, false);
-                    break;
-                case "simplerefuse"://如果拒绝
-                    if (senderPlayer.getInventory().firstEmpty() != -1) {
-                        for (int i = 0; i < 9; i++) {
-                            ItemStack tradeItem = inventoryCloseListener.getItemStackMap().get(i);
-                            senderPlayer.getInventory().addItem(tradeItem);
-                        }
-                    }
-                    commandSender.sendMessage("You have refused the transaction");
-                    senderPlayer.sendMessage("You have refused the transaction");
-
-                    lockGS.setLock(thisPlayer, false);
-                    break;
-                default:
-                    throw new IllegalStateException("Unknown command");
-            }
         } catch (Exception e) {
+            e.printStackTrace();
             commandSender.sendMessage("Did you enter the wrong command? usage: /simple<viewItem|accept|refuse>");
         }
         return true;

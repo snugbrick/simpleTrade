@@ -8,7 +8,7 @@ SimpleTrade是一个基于Vault的交易插件<br>
 使用 -commands
 -
 发送交易请求<br>
-`/simpleTrade to|from <playerName> <money>`<br>
+`/simpleTrade to <playerName> <money>`<br>
 查看交易物品<br>
 `/simpleview`<br>
 同意交易<br>

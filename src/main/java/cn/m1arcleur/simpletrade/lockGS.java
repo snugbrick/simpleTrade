@@ -15,7 +15,7 @@ public class lockGS {
         if (lock != boo) {
             lock = boo;
         } else {
-            Bukkit.getServer().getLogger().info((String.format("%s's Lock is already %b ", player.getName(), boo)));
+            Bukkit.getServer().getLogger().info((String.format("%s Lock is already %b ", player.getName(), boo)));
         }
     }
 

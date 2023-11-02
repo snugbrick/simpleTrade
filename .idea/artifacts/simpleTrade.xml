@@ -1,0 +1,9 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="simpleTrade">
+    <output-path>$USER_HOME$/Desktop/1.19.4/plugins</output-path>
+    <root id="archive" name="simpleTrade.jar">
+      <element id="module-output" name="simpleTrade" />
+      <element id="file-copy" path="$PROJECT_DIR$/src/main/resources/plugin.yml" />
+    </root>
+  </artifact>
+</component>
