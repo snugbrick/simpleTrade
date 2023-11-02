@@ -13,7 +13,7 @@ public class toInv {
     public static Inventory inventory;
 
     public static void open(Player player) {
-        inventory = Bukkit.createInventory(player, 9, "Put in the items you need to trade");
+        inventory = Bukkit.createInventory(player, 9, "§b§lPut in the items you need to trade");
         player.openInventory(inventory);
     }
 

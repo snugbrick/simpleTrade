@@ -35,7 +35,7 @@ public class processRequest implements TabExecutor {
 
                         for (int i = 0; i < 9; i++) {
                             ItemStack tradeItem = itemStack.get(i);
-                            commandSender.sendMessage(String.format("trading items is: %s", tradeItem));
+                            commandSender.sendMessage(String.format("§a§ltrading items is: §r§f%s", tradeItem));
                         }
                         break;
                     case "simpleaccept"://如果同意
@@ -47,10 +47,10 @@ public class processRequest implements TabExecutor {
                             addMoney(senderPlayer, tradeToSb.getMoney());
                             removeMoney(thisPlayer, tradeToSb.getMoney());
 
-                            commandSender.sendMessage("You have accepted the transaction");
-                            senderPlayer.sendMessage("You have accepted the transaction");
+                            commandSender.sendMessage("§aYou have accepted the transaction");
+                            senderPlayer.sendMessage("§aYou have accepted the transaction");
                         } else {
-                            commandSender.sendMessage("You do not have enough money or the inventory is full");
+                            commandSender.sendMessage("§cYou do not have enough money or the inventory is full");
                             return false;
                         }
 
@@ -63,10 +63,10 @@ public class processRequest implements TabExecutor {
                                 if (tradeItem != null) senderPlayer.getInventory().addItem(tradeItem);
                             }
 
-                            commandSender.sendMessage("You have refused the transaction");
-                            senderPlayer.sendMessage("You have refused the transaction");
+                            commandSender.sendMessage("§aYou have refused the transaction");
+                            senderPlayer.sendMessage("§aYou have refused the transaction");
                         } else {
-                            commandSender.sendMessage("The inventory is full");
+                            commandSender.sendMessage("§cThe inventory is full");
                             return false;
                         }
 
@@ -76,21 +76,15 @@ public class processRequest implements TabExecutor {
                         throw new IllegalStateException("Unknown command");
                 }
             } else {
-                commandSender.sendMessage(String.format("The %s already has an active transaction (does not own the lock)", thisPlayer.getName()));
+                commandSender.sendMessage(String.format("§c§lThe %s already has an active transaction (does not own the lock)", thisPlayer.getName()));
                 return false;
             }
 
         } catch (Exception e) {
             e.printStackTrace();
-            commandSender.sendMessage("Did you enter the wrong command? usage: /simple<viewItem|accept|refuse>");
+            commandSender.sendMessage("§c§lDid you enter the wrong command? §r§fusage: /simple<viewItem|accept|refuse>");
         }
         return true;
-        /*
-         * * // Economy#depositePlayer(Player, int) 方法用于将金额添加到玩家的钱包中
-         *    EconomyResponse response = econ.depositPlayer(player, amount);
-         *
-         * // Economy#withdrawPlayer(String, int) 方法用于从玩家的钱包中移除金额
-         * */
     }
 
     @Nullable
@@ -102,9 +96,9 @@ public class processRequest implements TabExecutor {
     private boolean addMoney(Player player, int amount) {
         try {
             EconomyResponse response = SimpleTrade.getEconomy().depositPlayer(player, amount);
-            Bukkit.getLogger().info(String.format("Player %s earned %d dollars through trading", player.getName(), amount));
+            Bukkit.getLogger().info(String.format("§aPlayer %s earned %d dollars through trading", player.getName(), amount));
             if (response.transactionSuccess()) {
-                player.sendMessage(String.format("You now have %s", SimpleTrade.getEconomy().getBalance(player)));
+                player.sendMessage(String.format("§bYou now have %s", SimpleTrade.getEconomy().getBalance(player)));
                 return true;
             } else {
                 player.sendMessage(response.errorMessage);
@@ -112,7 +106,7 @@ public class processRequest implements TabExecutor {
             }
         } catch (
                 NumberFormatException e) {
-            player.sendMessage("The amount you enter is not a number!");
+            player.sendMessage("§cThe amount you enter is not a number!");
             return false;
         }
     }
@@ -121,16 +115,16 @@ public class processRequest implements TabExecutor {
         try {
             if (amount > SimpleTrade.getEconomy().getBalance(player)) return false;
             EconomyResponse response = SimpleTrade.getEconomy().withdrawPlayer(player, amount);
-            Bukkit.getLogger().info(String.format("Player %s spent %d on a transaction", player.getName(), amount));
+            Bukkit.getLogger().info(String.format("§aPlayer %s spent %d on a transaction", player.getName(), amount));
             if (response.transactionSuccess()) {
-                player.sendMessage(String.format("You now have %s", SimpleTrade.getEconomy().getBalance(player)));
+                player.sendMessage(String.format("§bYou now have %s", SimpleTrade.getEconomy().getBalance(player)));
                 return true;
             } else {
                 player.sendMessage(response.errorMessage);
                 return false;
             }
         } catch (NumberFormatException e) {
-            player.sendMessage("The amount you enter is not a number!");
+            player.sendMessage("§cThe amount you enter is not a number!");
             return false;
         }
     }

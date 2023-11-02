@@ -21,10 +21,9 @@ public class sendPackageListener implements Listener {
         //Inventory inventory = e.getInventory();
         Player toPlayer = e.getToPlayer();
 
-        sendButtonMessage(toPlayer, "Click to view item", "/simpleview", "");
-        sendButtonMessage(toPlayer, "Click to trade", "/simpleaccept", "");
-        sendButtonMessage(toPlayer, "Click to refuse", "/simplerefuse", "");
-
+        sendButtonMessage(toPlayer, "§b§l§nClick to view item", "/simpleview", "");
+        sendButtonMessage(toPlayer, "§b§l§nClick to trade", "/simpleaccept", "");
+        sendButtonMessage(toPlayer, "§b§l§nClick to refuse", "/simplerefuse", "");
     }
 
     private static void sendButtonMessage(Player player, String text, String commands, String... args) {

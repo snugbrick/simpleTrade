@@ -39,40 +39,40 @@ public class tradeToSb implements TabExecutor {
 
                 //确定玩家和金额非空
                 if (player == null || strings[2] == null) {
-                    commandSender.sendMessage("Can't find the player you want to trade");
+                    commandSender.sendMessage("§cCan't find the player you want to trade");
                     return false;
                 }
                 //确定目标非己
                 if (playerNames.equals(commandSender.getName())) {
-                    commandSender.sendMessage("Can't trade yourself");
+                    commandSender.sendMessage("§cCan't trade yourself");
                     return false;
                 }
                 //确定指令正确
                 if (s.equalsIgnoreCase("simpleTrade") && direction.equals("to")) {
-                    commandSender.sendMessage(String.format("You have sent a trade request to %s , Money: %d", playerNames, money));
-                    player.sendMessage(String.format("You have a trade request from %s , Money: %d", commandSender.getName(), money));
+                    commandSender.sendMessage(String.format("§aYou have sent a trade request to §b§l%s §r§a, Money: %d", playerNames, money));
+                    player.sendMessage(String.format("§aYou have a trade request from §b§l%s §r§a, Money: %d", commandSender.getName(), money));
 
                     //打开输出物品栏，给予锁
                     lockGS.setLock((Player) commandSender, true);
                     toInv.open((Player) commandSender);
 
                 } else if (s.equalsIgnoreCase("simpleTrade") && direction.equals("from")) {
-                    commandSender.sendMessage(String.format("You have sent a trade request from %s , Money: %d", playerNames, money));
-                    player.sendMessage(String.format("You have a trade request to %s , Money: %d", commandSender.getName(), money));
+                    commandSender.sendMessage(String.format("§aYou have sent a trade request from §b§l%s §r§a, Money: %d", playerNames, money));
+                    player.sendMessage(String.format("§aYou have a trade request to §b§l%s §r§a, Money: %d", commandSender.getName(), money));
 
                     //打开输出物品栏，给予锁
                     lockGS.setLock((Player) commandSender, true);
                     fromInv.open((Player) commandSender);
 
                 } else {
-                    commandSender.sendMessage("Did you enter the wrong command? usage: /simpleTrade to|from <playerName> <money>");
+                    commandSender.sendMessage("§c§lDid you enter the wrong command? §r§fusage: /simpleTrade to|from <playerName> <money>");
                 }
             } else {
-                commandSender.sendMessage("Did you enter the wrong command? usage: /simpleTrade to|from <playerName> <money>");
+                commandSender.sendMessage("§c§lDid you enter the wrong command? §r§fusage: /simpleTrade to|from <playerName> <money>");
                 return false;
             }
         } catch (Exception exception) {
-            commandSender.sendMessage("Did you enter the wrong command? usage: /simpleTrade to|from <playerName> <money>");
+            commandSender.sendMessage("§c§lDid you enter the wrong command? §r§fusage: /simpleTrade to|from <playerName> <money>");
             return false;
         }
         //太废物了写这么多if,QAQ
