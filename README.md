@@ -8,17 +8,15 @@ SimpleTrade是一个基于Vault的交易插件<br>
 使用 -commands
 -
 发送交易请求<br>
-/simpleTrade to|from <playerName> <money><br>
+`/simpleTrade to|from <playerName> <money>`<br>
 查看交易物品<br>
-/simpleview<br>
+`/simpleview`<br>
 同意交易<br>
-/simpleaccept<br>
+`/simpleaccept`<br>
 拒绝交易<br>
-/simplerefuse
+`/simplerefuse`
 
 构建 -maven<br>
 -
-'''
-mvn package
-'''
+`mvn package`
 
