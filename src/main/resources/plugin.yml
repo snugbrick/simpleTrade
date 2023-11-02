@@ -1,0 +1,17 @@
+name: simpleTrade
+version: 1.0.0
+main: cn.m1arcleur.simpletrade.SimpleTrade
+api-version: '1.13'
+authors: [ MiracleUR ]
+depend: [ Vault ]
+softdepend:
+  - PlaceholderAPI
+commands:
+  simpleTrade:
+    description: have a trade
+    permission: ""
+    permission-message: "你执行不了啊awa"
+  simpleRequest:
+    description: have a Request
+    permission: ""
+    permission-message: "你执行不了啊awa"
