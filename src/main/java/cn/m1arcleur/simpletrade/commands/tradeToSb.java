@@ -1,5 +1,6 @@
 package cn.m1arcleur.simpletrade.commands;
 
+import cn.m1arcleur.simpletrade.lockGS;
 import cn.m1arcleur.simpletrade.inventory.fromInv;
 import cn.m1arcleur.simpletrade.inventory.toInv;
 import org.bukkit.Bukkit;
@@ -14,11 +15,12 @@ import java.util.List;
  * @author MiracleUR
  * @version 1.0.0 2023.11.01 21:51
  * @website github.com/snugbrick;
- *
+ * <p>
  * /simpleTrade to|from <playerName> <money>指令
  */
 public class tradeToSb implements TabExecutor {
     private static Player toPlayer;
+
     @Override
     public boolean onCommand(CommandSender commandSender, Command command, String s, String[] strings) {
         try {
@@ -45,14 +47,16 @@ public class tradeToSb implements TabExecutor {
                     commandSender.sendMessage(String.format("You have sent a trade request to %s , Money: %d", playerNames, money));
                     player.sendMessage(String.format("You have a trade request from %s , Money: %d", commandSender.getName(), money));
 
-                    //打开输出物品栏
+                    //打开输出物品栏，给予锁
+                    lockGS.setLock((Player) commandSender, true);
                     toInv.open((Player) commandSender);
 
                 } else if (s.equalsIgnoreCase("simpleTrade") && direction.equals("from")) {
                     commandSender.sendMessage(String.format("You have sent a trade request from %s , Money: %d", playerNames, money));
                     player.sendMessage(String.format("You have a trade request to %s , Money: %d", commandSender.getName(), money));
 
-                    //打开输入物品栏
+                    //打开输出物品栏，给予锁
+                    lockGS.setLock((Player) commandSender, true);
                     fromInv.open((Player) commandSender);
 
                 } else {
@@ -66,7 +70,7 @@ public class tradeToSb implements TabExecutor {
             commandSender.sendMessage("Did you enter the wrong command? usage: /simpleTrade to|from <playerName> <money>");
             return false;
         }
-        //太废物了写这么多if
+        //太废物了写这么多if,QAQ
         return true;
     }
 

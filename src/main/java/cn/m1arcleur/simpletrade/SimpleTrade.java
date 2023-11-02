@@ -64,7 +64,10 @@ public final class SimpleTrade extends JavaPlugin {
 
     public void commandsRegister() {
         getCommand("simpleTrade").setExecutor(new tradeToSb());
-        getCommand("simpleRequest").setExecutor(new processRequest());
+        getCommand("simpleview").setExecutor(new processRequest());
+        getCommand("simpleaccept").setExecutor(new processRequest());
+        getCommand("simplerefuse").setExecutor(new processRequest());
+
     }
 
 

@@ -11,7 +11,15 @@ commands:
     description: have a trade
     permission: ""
     permission-message: "你执行不了啊awa"
-  simpleRequest:
-    description: have a Request
+  simpleview:
+    description: have a simpleView
+    permission: ""
+    permission-message: "你执行不了啊awa"
+  simpleaccept:
+    description: have a simpleAccept
+    permission: ""
+    permission-message: "你执行不了啊awa"
+  simplerefuse:
+    description: have a simpleRefuse
     permission: ""
     permission-message: "你执行不了啊awa"
