@@ -50,7 +50,6 @@ public class processRequest implements TabExecutor {
                     throw new IllegalStateException("Unknown command");
             }
         } catch (Exception e) {
-            e.printStackTrace();
             commandSender.sendMessage("Did you enter the wrong command? usage: /simple<viewItem|accept|refuse>");
         }
         return true;
