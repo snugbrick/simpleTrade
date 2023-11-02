@@ -1,6 +1,24 @@
 # simpleTrade
-基于Vault的交易插件
-sakuraTech(Slimefun)--樱花科技(正在制作)（支持1.20+）<br>
-=
-樱花科技是一个粘液科技(Slimefun)的附属插件，旨在粘液科技中添加1.20.2版本的与樱花相关的科技工具<br>
-SakuraTech is a subsidiary plugin for Slimefun, aimed at adding cherry blossom-related technological tools to Miracraft version 1.20.2.
+基于Vault的交易插件<br>
+
+SimpleTrade（支持1.19.4+）<br>
+-
+SimpleTrade是一个基于Vault的交易插件<br>
+
+使用 -commands
+-
+发送交易请求<br>
+/simpleTrade to|from <playerName> <money><br>
+查看交易物品<br>
+/simpleview<br>
+同意交易<br>
+/simpleaccept<br>
+拒绝交易<br>
+/simplerefuse
+
+构建 -maven<br>
+-
+'''
+mvn package
+'''
+
