@@ -1,8 +1,8 @@
 package cn.m1arcleur.simpletrade.commands;
 
-import cn.m1arcleur.simpletrade.lockGS;
 import cn.m1arcleur.simpletrade.inventory.fromInv;
 import cn.m1arcleur.simpletrade.inventory.toInv;
+import cn.m1arcleur.simpletrade.lockGS;
 import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
@@ -20,6 +20,9 @@ import java.util.List;
  */
 public class tradeToSb implements TabExecutor {
     private static Player toPlayer;
+    private static Player fromPlayer;
+
+    private static int Money;
 
     @Override
     public boolean onCommand(CommandSender commandSender, Command command, String s, String[] strings) {
@@ -30,6 +33,8 @@ public class tradeToSb implements TabExecutor {
                 Player player = Bukkit.getPlayer(playerNames);
                 int money = Integer.parseInt(strings[2]);
 
+                Money = money;
+                fromPlayer = (Player) commandSender;
                 toPlayer = player;//给别的方法用的
 
                 //确定玩家和金额非空
@@ -77,6 +82,15 @@ public class tradeToSb implements TabExecutor {
     public static Player getToPlayer() {
         return toPlayer;
     }
+
+    public static Player getFromPlayer() {
+        return fromPlayer;
+    }
+
+    public static int getMoney() {
+        return Money;
+    }
+
 
     @Override
     public List<String> onTabComplete(CommandSender commandSender, Command command, String s, String[] strings) {
