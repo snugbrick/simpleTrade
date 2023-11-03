@@ -2,6 +2,7 @@ package cn.m1arcleur.simpletrade;
 
 import cn.m1arcleur.simpletrade.commands.processRequest;
 import cn.m1arcleur.simpletrade.commands.tradeToSb;
+import cn.m1arcleur.simpletrade.listener.autoLockListener;
 import cn.m1arcleur.simpletrade.listener.inventoryCloseListener;
 import cn.m1arcleur.simpletrade.listener.sendPackageListener;
 import net.milkbowl.vault.chat.Chat;
@@ -74,6 +75,7 @@ public final class SimpleTrade extends JavaPlugin {
     public void listenerRegister() {
         getServer().getPluginManager().registerEvents(new inventoryCloseListener(), this);
         getServer().getPluginManager().registerEvents(new sendPackageListener(), this);
+        getServer().getPluginManager().registerEvents(new autoLockListener(), this);
     }
 
     @Override
