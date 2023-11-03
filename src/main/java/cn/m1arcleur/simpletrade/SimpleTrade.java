@@ -16,7 +16,7 @@ import java.util.Objects;
 /*
  * 已完成：trade指令，to和from的Inv，发送包监听器和Inv关闭监听器
  *
- * 待完成：接受指令，查看指令，拒绝指令，以及接受的金额扣除，查看时给出Inv，拒绝是返回消息给交易请求方
+ * 待完成：，查看时给出Inv，超时取消
  *
  * // Economy#depositePlayer(Player, int) 方法用于将金额添加到玩家的钱包中
  *    EconomyResponse response = econ.depositPlayer(player, amount);

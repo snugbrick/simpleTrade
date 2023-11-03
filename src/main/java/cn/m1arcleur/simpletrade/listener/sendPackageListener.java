@@ -22,7 +22,7 @@ public class sendPackageListener implements Listener {
         Player toPlayer = e.getToPlayer();
 
         sendButtonMessage(toPlayer, "§b§l§n[Click to view item]", "/simpleview", "");
-        sendButtonMessage(toPlayer, "§b§l§n[Click to trade]", "/simpleaccept", "");
+        sendButtonMessage(toPlayer, "§b§l§n[Click to accept]", "/simpleaccept", "");
         sendButtonMessage(toPlayer, "§b§l§n[Click to refuse]", "/simplerefuse", "");
     }
 

@@ -1,11 +1,10 @@
 package cn.m1arcleur.simpletrade.listener;
 
 import cn.m1arcleur.simpletrade.api.events.sendPackageEvent;
+import cn.m1arcleur.simpletrade.api.events.timeOutAutoLock;
 import cn.m1arcleur.simpletrade.commands.tradeToSb;
 import cn.m1arcleur.simpletrade.inventory.fromInv;
 import cn.m1arcleur.simpletrade.inventory.toInv;
-import net.md_5.bungee.api.chat.ClickEvent;
-import net.md_5.bungee.api.chat.TextComponent;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -21,7 +20,7 @@ import java.util.Map;
  * @author MiracleUR
  * @version 1.0.0 2023.11.01 23:36
  * @website github.com/snugbrick;
- *
+ * <p>
  * 监听Inv关闭
  */
 public class inventoryCloseListener implements Listener {
@@ -36,7 +35,7 @@ public class inventoryCloseListener implements Listener {
     @EventHandler
     public static void onInventoryClose(InventoryCloseEvent event) {
         Inventory newInventory = event.getInventory();
-        Player player = (Player) event.getPlayer();
+        Player player = (Player) event.getPlayer();//senderPlayer
         Player toPlayer = tradeToSb.getToPlayer();
 
         int size = newInventory.getSize();
@@ -46,6 +45,9 @@ public class inventoryCloseListener implements Listener {
             }
             sendPackageEvent sendPackageEvent = new sendPackageEvent(player, toPlayer, newInventory);
             Bukkit.getServer().getPluginManager().callEvent(sendPackageEvent);
+
+            timeOutAutoLock timeOutAutoLock = new timeOutAutoLock(player, false);
+            Bukkit.getServer().getPluginManager().callEvent(timeOutAutoLock);
         }
     }
 
