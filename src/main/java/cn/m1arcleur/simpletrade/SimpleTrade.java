@@ -1,6 +1,7 @@
 package cn.m1arcleur.simpletrade;
 
 import cn.m1arcleur.simpletrade.commands.processRequest;
+import cn.m1arcleur.simpletrade.commands.tradeCancel;
 import cn.m1arcleur.simpletrade.commands.tradeToSb;
 import cn.m1arcleur.simpletrade.listener.autoLockListener;
 import cn.m1arcleur.simpletrade.listener.inventoryCloseListener;
@@ -68,6 +69,7 @@ public final class SimpleTrade extends JavaPlugin {
         getCommand("simpleview").setExecutor(new processRequest());
         getCommand("simpleaccept").setExecutor(new processRequest());
         getCommand("simplerefuse").setExecutor(new processRequest());
+        getCommand("tradeCancel").setExecutor(new tradeCancel());
 
     }
 

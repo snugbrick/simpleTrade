@@ -4,7 +4,6 @@ import cn.m1arcleur.simpletrade.SimpleTrade;
 import cn.m1arcleur.simpletrade.api.events.timeOutAutoLock;
 import cn.m1arcleur.simpletrade.commands.tradeToSb;
 import cn.m1arcleur.simpletrade.lockGS;
-import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;

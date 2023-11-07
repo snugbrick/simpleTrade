@@ -23,3 +23,7 @@ commands:
     description: have a simpleRefuse
     permission: ""
     permission-message: "你执行不了啊awa"
+  tradecancel:
+    description: have a tradecancel
+    permission: ""
+    permission-message: "你执行不了啊awa"
