@@ -16,10 +16,6 @@ import org.bukkit.plugin.java.JavaPlugin;
 import java.util.Objects;
 
 /*
- * 已完成：trade指令，to和from的Inv，发送包监听器和Inv关闭监听器
- *
- * 待完成：，查看时给出Inv，超时取消
- *
  * // Economy#depositePlayer(Player, int) 方法用于将金额添加到玩家的钱包中
  *    EconomyResponse response = econ.depositPlayer(player, amount);
  *
@@ -46,7 +42,7 @@ public final class SimpleTrade extends JavaPlugin {
 
         // 判断Vault前置插件是否存在
         if (getServer().getPluginManager().getPlugin("Vault") == null) {
-            getLogger().info("没有发现Vault前置，本插件无法继续使用！");
+            getLogger().info("没有发现Vault前置,本插件无法继续使用！");
             // 禁用插件
             getServer().getPluginManager().disablePlugin(this);
             return;

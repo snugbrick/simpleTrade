@@ -7,6 +7,8 @@ import org.bukkit.entity.Player;
  * @author MiracleUR
  * @version 1.0.0 2023.11.02 20:53
  * @website github.com/snugbrick;
+ * 
+ * //锁
  */
 public class lockGS {
     private static boolean lock = false;

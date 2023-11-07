@@ -9,6 +9,8 @@ import org.jetbrains.annotations.NotNull;
  * @author MiracleUR
  * @version 1.0.0 2023.11.03 21:52
  * @website github.com/snugbrick;
+ * 
+ * //当交易订单超时时触发
  */
 public class timeOutAutoLock extends Event {
     private static final HandlerList handlers = new HandlerList();
