@@ -15,7 +15,7 @@ SimpleTrade是一个基于Vault的交易插件<br>
 同意交易<br>
 `/simpleaccept`<br>
 拒绝交易<br>
-`/simplerefuse`
+`/simplerefuse`<br>
 取消交易<br>
 `/tradecancel`
 
