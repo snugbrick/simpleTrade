@@ -3,6 +3,9 @@ package cn.m1arcleur.simpletrade.commands;
 import cn.m1arcleur.simpletrade.inventory.fromInv;
 import cn.m1arcleur.simpletrade.inventory.toInv;
 import cn.m1arcleur.simpletrade.lockGS;
+import net.md_5.bungee.api.ChatMessageType;
+import net.md_5.bungee.api.chat.ClickEvent;
+import net.md_5.bungee.api.chat.ComponentBuilder;
 import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
@@ -56,6 +59,7 @@ public class tradeToSb implements TabExecutor {
                     lockGS.setLock((Player) commandSender, true);
                     toInv.open((Player) commandSender);
 
+                    sendButtonMessage((Player) commandSender, "§b§l§n[Click to Cancel]", "/tradecancel", "");
                 } else if (s.equalsIgnoreCase("simpleTrade") && direction.equals("from")) {
                     commandSender.sendMessage(String.format("§aYou have sent a trade request from §b§l%s §r§a, Money: %d", playerNames, money));
                     player.sendMessage(String.format("§aYou have a trade request to §b§l%s §r§a, Money: %d", commandSender.getName(), money));
@@ -64,6 +68,7 @@ public class tradeToSb implements TabExecutor {
                     lockGS.setLock((Player) commandSender, true);
                     fromInv.open((Player) commandSender);
 
+                    sendButtonMessage((Player) commandSender, "§b§l§n[Click to Cancel]", "/tradecancel", "");
                 } else {
                     commandSender.sendMessage("§c§lDid you enter the wrong command? §r§fusage: /simpleTrade to|from <playerName> <money>");
                 }
@@ -95,5 +100,12 @@ public class tradeToSb implements TabExecutor {
     @Override
     public List<String> onTabComplete(CommandSender commandSender, Command command, String s, String[] strings) {
         return null;
+    }
+
+    private static void sendButtonMessage(Player player, String text, String commands, String... args) {
+        ComponentBuilder builder = new ComponentBuilder(text)
+                .event(new ClickEvent(ClickEvent.Action.RUN_COMMAND, commands + args[0]));
+
+        player.spigot().sendMessage(ChatMessageType.CHAT, builder.create());
     }
 }

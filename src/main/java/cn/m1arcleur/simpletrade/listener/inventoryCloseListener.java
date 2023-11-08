@@ -27,10 +27,9 @@ public class inventoryCloseListener implements Listener {
     private static Map<Integer, ItemStack> itemStackMap;
 //  输入的物品在此
 
-    //?
-    static {
-        itemStackMap = new HashMap<>();
-    }
+    static {//?
+        itemStackMap = new HashMap<>();//?
+    }//?
 
     @EventHandler
     public static void onInventoryClose(InventoryCloseEvent event) {
