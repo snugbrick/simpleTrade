@@ -3,6 +3,7 @@ package cn.m1arcleur.simpletrade.commands;
 import cn.m1arcleur.simpletrade.SimpleTrade;
 import cn.m1arcleur.simpletrade.listener.inventoryCloseListener;
 import cn.m1arcleur.simpletrade.lockGS;
+import cn.m1arcleur.simpletrade.theTaxation;
 import net.milkbowl.vault.economy.EconomyResponse;
 import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
@@ -44,7 +45,10 @@ public class processRequest implements TabExecutor {
                                 ItemStack tradeItem = inventoryCloseListener.getItemStackMap().get(i);
                                 if (tradeItem != null) thisPlayer.getInventory().addItem(tradeItem);
                             }
-                            addMoney(senderPlayer, tradeToSb.getMoney());
+                            int beforeTaxed = tradeToSb.getMoney();
+                            int afterTaxed = theTaxation.deductAmount(beforeTaxed);//税收
+
+                            addMoney(senderPlayer, afterTaxed);
                             removeMoney(thisPlayer, tradeToSb.getMoney());
 
                             commandSender.sendMessage("§aYou have accepted the transaction");
@@ -93,7 +97,7 @@ public class processRequest implements TabExecutor {
         return null;
     }
 
-    private boolean addMoney(Player player, int amount) {
+    public static boolean addMoney(Player player, int amount) {
         try {
             EconomyResponse response = SimpleTrade.getEconomy().depositPlayer(player, amount);
             Bukkit.getLogger().info(String.format("§aPlayer %s earned %d dollars through trading", player.getName(), amount));

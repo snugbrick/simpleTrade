@@ -56,24 +56,29 @@ public final class SimpleTrade extends JavaPlugin {
             return;
         }
 
-        commandsRegister();
-        listenerRegister();
+        URregister uRregister = new URregister();
+        uRregister.commandsRegister();
+        uRregister.listenerRegister();
     }
 
-    public void commandsRegister() {
-        getCommand("simpleTrade").setExecutor(new tradeToSb());
-        getCommand("simpleview").setExecutor(new processRequest());
-        getCommand("simpleaccept").setExecutor(new processRequest());
-        getCommand("simplerefuse").setExecutor(new processRequest());
-        getCommand("tradeCancel").setExecutor(new tradeCancel());
+    private class URregister {
+        public void commandsRegister() {
+            getCommand("simpleTrade").setExecutor(new tradeToSb());
+            getCommand("simpleview").setExecutor(new processRequest());
+            getCommand("simpleaccept").setExecutor(new processRequest());
+            getCommand("simplerefuse").setExecutor(new processRequest());
+            getCommand("tradeCancel").setExecutor(new tradeCancel());
 
-    }
+            getLogger().info("Commands Registered!");
+        }
 
+        public void listenerRegister() {
+            getServer().getPluginManager().registerEvents(new inventoryCloseListener(), SimpleTrade.getInstance());
+            getServer().getPluginManager().registerEvents(new sendPackageListener(), SimpleTrade.getInstance());
+            getServer().getPluginManager().registerEvents(new autoLockListener(), SimpleTrade.getInstance());
 
-    public void listenerRegister() {
-        getServer().getPluginManager().registerEvents(new inventoryCloseListener(), this);
-        getServer().getPluginManager().registerEvents(new sendPackageListener(), this);
-        getServer().getPluginManager().registerEvents(new autoLockListener(), this);
+            getLogger().info("Listener Registered!");
+        }
     }
 
     @Override

@@ -24,7 +24,6 @@ import java.util.List;
 public class tradeToSb implements TabExecutor {
     private static Player toPlayer;
     private static Player fromPlayer;
-
     private static int Money;
 
     @Override
@@ -80,7 +79,7 @@ public class tradeToSb implements TabExecutor {
             commandSender.sendMessage("§c§lDid you enter the wrong command? §r§fusage: /simpleTrade to|from <playerName> <money>");
             return false;
         }
-        //太废物了写这么多if,QAQ
+        //我太废物了QAQ
         return true;
     }
 
@@ -95,7 +94,6 @@ public class tradeToSb implements TabExecutor {
     public static int getMoney() {
         return Money;
     }
-
 
     @Override
     public List<String> onTabComplete(CommandSender commandSender, Command command, String s, String[] strings) {
