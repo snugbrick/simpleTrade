@@ -9,9 +9,8 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 
 /**
- * @author MiracleUR
- * @version 1.0.0 2023.11.02 00:59
- * @website github.com/snugbrick;
+ * @author MiracleUR -> github.com/snugbrick
+ * @version 1.0.0 2023.11.06 23:04
  * <p>
  * 发送按钮
  */

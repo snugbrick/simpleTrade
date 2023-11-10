@@ -18,9 +18,8 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * @author MiracleUR
- * @version 1.0.0 2023.11.02 02:37
- * @website github.com/snugbrick;
+ * @author MiracleUR -> github.com/snugbrick
+ * @version 1.0.0 2023.11.06 23:04
  */
 public class processRequest implements TabExecutor {
     @Override
@@ -85,7 +84,6 @@ public class processRequest implements TabExecutor {
             }
 
         } catch (Exception e) {
-            e.printStackTrace();
             commandSender.sendMessage("§c§lDid you enter the wrong command? §r§fusage: /simple<viewItem|accept|refuse>");
         }
         return true;

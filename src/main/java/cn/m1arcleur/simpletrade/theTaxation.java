@@ -1,6 +1,6 @@
 package cn.m1arcleur.simpletrade;
 
-import cn.m1arcleur.simpletrade.api.configHandler.configGetter;
+import cn.m1arcleur.simpletrade.api.filesHandler.configGetter;
 import cn.m1arcleur.simpletrade.commands.processRequest;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;

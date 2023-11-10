@@ -14,10 +14,9 @@ import org.bukkit.entity.Player;
 
 import java.util.List;
 
-/**
- * @author MiracleUR
- * @version 1.0.0 2023.11.01 21:51
- * @website github.com/snugbrick;
+ /**
+ * @author MiracleUR -> github.com/snugbrick
+ * @version 1.0.0 2023.11.06 23:04
  * <p>
  * /simpleTrade to|from <playerName> <money>指令
  */

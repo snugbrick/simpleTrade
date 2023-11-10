@@ -1,9 +1,12 @@
 # %s指String[tradeItem,playerName]
-processRequest-simpleView-sendMessage: "§a§ltrading items is: §r§f%s"
+simpleView-sendMessage: "§a§ltrading items is: §r§f%s"
 
-processRequest-simpleAccept-commandSender-sendMessage: "§aYou have accepted the transaction"
-processRequest-simpleAccept-senderPlayer-sendMessage: "§aYou have accepted the transaction"
-processRequest-simpleAccept-inventoryFull: "§cYou do not have enough money or the inventory is full"
+simpleAccept-commandSender-sendMessage: "§aYou have accepted the transaction"
+simpleAccept-senderPlayer-sendMessage: "§aYou have accepted the transaction"
+simpleAccept-inventoryFull: "§cYou do not have enough money or the inventory is full"
 
-processRequest-simpleRefuse-commandSender-sendMessage: "§aYou have refused the transaction"
-processRequest-simpleRefuse-senderPlayer-sendMessage: "§aYou have refused the transaction"
+simpleRefuse-commandSender-sendMessage: "§aYou have refused the transaction"
+simpleRefuse-senderPlayer-sendMessage: "§aYou have refused the transaction"
+
+command-registerDone: "Commands Registered!"
+listener-registerDone: "Listener Registered!"

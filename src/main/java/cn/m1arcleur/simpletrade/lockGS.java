@@ -4,10 +4,9 @@ import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 
 /**
- * @author MiracleUR
- * @version 1.0.0 2023.11.02 20:53
- * @website github.com/snugbrick;
- * 
+ * @author MiracleUR -> github.com/snugbrick
+ * @version 1.0.0 2023.11.06 23:04
+ *
  * //锁
  */
 public class lockGS {

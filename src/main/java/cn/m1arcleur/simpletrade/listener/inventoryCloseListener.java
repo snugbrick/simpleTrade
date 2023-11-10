@@ -17,9 +17,8 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * @author MiracleUR
- * @version 1.0.0 2023.11.01 23:36
- * @website github.com/snugbrick;
+ * @author MiracleUR -> github.com/snugbrick
+ * @version 1.0.0 2023.11.06 23:04
  * <p>
  * 监听Inv关闭
  */
