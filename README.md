@@ -21,7 +21,9 @@ SimpleTrade是一个基于Vault的交易插件<br>
 
 构建 -maven<br>
 -
-`mvn package`
+```
+mvn package
+```
 
 依赖 -depends
 -
