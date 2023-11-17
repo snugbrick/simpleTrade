@@ -28,5 +28,5 @@ mvn package
 依赖 -depends
 -
 depend: [ Vault ]<br>
-softdepend: [ PlaceholderAPI ]<br>
+softdepend: [ ]<br>
 
