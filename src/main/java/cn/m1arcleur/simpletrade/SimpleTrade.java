@@ -18,12 +18,6 @@ import java.util.Objects;
  * @author MiracleUR -> github.com/snugbrick
  * @version 1.0.0 2023.11.06 23:04
  */
-/*
- * // Economy#depositePlayer(Player, int) 方法用于将金额添加到玩家的钱包中
- *    EconomyResponse response = econ.depositPlayer(player, amount);
- *
- * // Economy#withdrawPlayer(String, int) 方法用于从玩家的钱包中移除金额
- * */
 public final class SimpleTrade extends JavaPlugin {
 
     private static Economy econ = null;
@@ -94,8 +88,7 @@ public final class SimpleTrade extends JavaPlugin {
     }
 
     private boolean setupEconomy() {
-        //感谢senko的实例代码 :) -> github.com/Shinyoki
-        // 获取Economy服务（说简单点，就是看看有没有EssentialX等经济插件被加载了，如果有，VaultAPI就能够提供对应的经济服务）
+        // 获取Economy服务
         RegisteredServiceProvider<Economy> rsp = getServer().getServicesManager()
                 .getRegistration(Economy.class);
         econ = rsp.getProvider();
