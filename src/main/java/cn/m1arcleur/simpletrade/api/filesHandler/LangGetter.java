@@ -14,7 +14,7 @@ import java.io.IOException;
  */
 public class LangGetter {
     public static String getLang(String key) {
-        File langFile = new File(SimpleTrade.getInstance().getDataFolder(), "F:\\.FJavaProject\\simpleTrade\\src\\main\\resources\\lang.yml");
+        File langFile = new File(SimpleTrade.getInstance().getDataFolder(), "lang.yml");
         FileConfiguration langConfig = YamlConfiguration.loadConfiguration(langFile);
 
         // 尝试重新加载配置文件
